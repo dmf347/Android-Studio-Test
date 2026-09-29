@@ -8,7 +8,7 @@ Aplicación nativa de Android desarrollada en **Kotlin** para la gestión y tran
 
 | Pantalla Principal (`SendMessageActivity`) | Pantalla de Recepción (`ViewMessageActivity`) |
 | :---: | :---: |
-| ![Pantalla Principal](C:\Users\david\Pictures\Screenshots\SendMessageActivity.png) | ![Pantalla Mensaje Recibido](C:\Users\david\Pictures\Screenshots\ViewMessageActivity.png) |
+| ![Pantalla Principal](docs/images/app_main_screen.png) | ![Pantalla Mensaje Recibido](docs/images/app_view_message.png) |
 
 ---
 

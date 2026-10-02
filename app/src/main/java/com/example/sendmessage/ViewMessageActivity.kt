@@ -2,8 +2,10 @@ package com.example.sendmessage
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.sendmessage.model.Message
 
 /**
  * Segunda actividad de la aplicación SendMessage.
@@ -14,7 +16,14 @@ import androidx.appcompat.app.AppCompatActivity
  * @author David
  * @version 1.0
  */
+
+
+
 class ViewMessageActivity : AppCompatActivity() {
+
+    companion object {
+        const val TAG: String ="LogViewMessageActivity"
+    }
 
     /**
      * Inicializa la interfaz de usuario y recupera los datos transmitidos.
@@ -29,8 +38,37 @@ class ViewMessageActivity : AppCompatActivity() {
         setContentView(R.layout.activity_view_message)
 
         val tvViewMessage = findViewById<TextView>(R.id.tvViewMessage)
-        val message = intent.getStringExtra("KEY_MESSAGE")
+        val tvSender = findViewById<TextView>(R.id.tvSender)
+        val message = intent.getSerializableExtra("KEY_MESSAGE") as? Message
 
-        tvViewMessage.text = message
+        tvViewMessage.text = message?.content
+        tvSender.text = message?.sender?.name
     }
+
+    //region Ciclo de Vida de una Actividad
+    override fun onStart() {
+        super.onStart()
+        Log.d("TAG", "ViewMessageActivity -> onCreate()")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("TAG", "ViewMessageActivity -> onCreate()")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("TAG", "ViewMessageActivity -> onCreate()")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("TAG", "ViewMessageActivity -> onCreate()")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("TAG", "ViewMessageActivity -> onCreate()")
+    }
+    //endregion
 }

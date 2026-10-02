@@ -5,10 +5,10 @@
     <string name="second_fragment_label">Second Fragment</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-    <string name="etSendMessage">User</string>
-    <string name="btSendMessage">Sign in</string>
+    <string name="etSendMessage">Introduce text</string>
+    <string name="btSendMessage">Send</string>
     <string name="hintSendMessage">Blind</string>
-    <string name="tvSendMessage">Título</string>
+    <string name="tvSendMessage">Send Activity</string>
     <string name="etViewActivity">Usuario</string>
 
     <string name="lorem_ipsum">

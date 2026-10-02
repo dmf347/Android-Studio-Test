@@ -2,9 +2,12 @@ package com.example.sendmessage
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.example.sendmessage.model.Message
+import com.example.sendmessage.model.Person
 
 /**
  * Actividad principal de la aplicación SendMessage.
@@ -13,10 +16,27 @@ import androidx.appcompat.app.AppCompatActivity
  * y enviarlo a una segunda actividad [ViewMessageActivity] mediante un [Intent] explicito
  * al pulsar el botón de envío [Button].
  *
+ * <ol>
+ *      *       <li>Crear un componente EditText y Button en XML</li>
+ *      *       <li>Lanzar un evento en un componente Visual</li>
+ *      *       <li>Crea el <code>Intent</code> junto con el <code>Bundle</code> para pasar a otra actividad</li>
+ *      *       <li>El ciclo de vida de la Activity</li>
+ *      *       <li>Ver la pila de Activities</li>
+ *      *   </ol>
+ *
  * @author David
  * @version 1.0
+ * @see android.widget.Button
+ * @see android.widget.EditText
+ * @see android.os.Bundle
+ * @see Intent
  */
 class SendMessageActivity : AppCompatActivity() {
+    lateinit var etMessageText: EditText
+
+    companion object {
+        const val TAG: String ="LogSendMessageActivity"
+    }
 
     /**
      * Inicializa la interfaz de usuario de la actividad.
@@ -27,18 +47,67 @@ class SendMessageActivity : AppCompatActivity() {
      *
      * @param savedInstanceState Estado guardado previo de la actividad, si existe.
      */
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_send_message)
 
-        val etMessageText = findViewById<EditText>(R.id.etSendMessage)
+        etMessageText = findViewById(R.id.etSendMessage)
         val btSend = findViewById<Button>(R.id.btSendMessage)
 
         btSend.setOnClickListener {
-            val intent = Intent(this, ViewMessageActivity::class.java).apply {
-                putExtra("KEY_MESSAGE", etMessageText.text.toString())
-            }
-            startActivity(intent)
+            sendMessage()
         }
+        // Se escriben mensajes de depuración en la consola LogCat
+        Log.d("TAG", "SendMessageActivity -> onCreate()")
     }
+
+    /**
+     * Función que crea un mensaje con la información de la persona que envia y de la persona
+     * que recive el mensaje
+     */
+    private fun sendMessage() {
+        // 1. Crear el Intent
+        val intent = Intent(this, ViewMessageActivity::class.java)
+        // 2. Crear el Bundle
+        val bundle = Bundle()
+        // 3. La información del mensaje
+        val sender = Person("77684848W", "David", "Márquez Fontivero")
+        val reciever = Person("77684848W", "David", "Márquez Fontivero")
+
+        val message = Message(1, etMessageText.text.toString(), sender, reciever)
+        bundle.putSerializable("KEY_MESSAGE", message)
+        intent.putExtras(bundle)
+        startActivity(intent)
+    }
+
+    //region Ciclo de Vida de una Actividad
+    override fun onStart() {
+        super.onStart()
+        Log.d(TAG, "SendMessageActivity -> onCreate()")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(TAG, "SendMessageActivity -> onCreate()")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(TAG, "SendMessageActivity -> onCreate()")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(TAG, "SendMessageActivity -> onCreate()")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(TAG, "SendMessageActivity -> onCreate()")
+    }
+    //endregion
+
+
 }

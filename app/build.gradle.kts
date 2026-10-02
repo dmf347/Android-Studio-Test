@@ -1,5 +1,6 @@
 plugins {
     alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.dokka)
 }
 
 android {
@@ -43,4 +44,20 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(libs.androidx.junit)
+}
+
+dokka {
+    moduleName.set("SendMessage") //Este nombre puede ser aleatorio, pero conviene que sea el del proyecto
+
+    dokkaPublications.html {
+        outputDirectory.set(rootProject.file("documentation"))
+    }
+
+    dokkaSourceSets {
+        register("main") {
+            // sourceRoots.from(file("src/main/java"))
+            jdkVersion.set(21)
+            enableAndroidDocumentationLink.set(false)
+        }
+    }
 }

@@ -13,16 +13,16 @@ import com.example.sendmessage.model.Person
  * Actividad principal de la aplicación SendMessage.
  *
  * Esta actividad permite al usuario redactar un texto dentro de un campo de entrada [EditText]
- * y enviarlo a una segunda actividad [ViewMessageActivity] mediante un [Intent] explicito
+ * y enviarlo a una segunda actividad [ViewMessageActivity] mediante un [Intent] explícito
  * al pulsar el botón de envío [Button].
  *
  * <ol>
- *      *       <li>Crear un componente EditText y Button en XML</li>
- *      *       <li>Lanzar un evento en un componente Visual</li>
- *      *       <li>Crea el <code>Intent</code> junto con el <code>Bundle</code> para pasar a otra actividad</li>
- *      *       <li>El ciclo de vida de la Activity</li>
- *      *       <li>Ver la pila de Activities</li>
- *      *   </ol>
+ *      <li>Crear un componente EditText y Button en XML</li>
+ *      <li>Lanzar un evento en un componente Visual</li>
+ *      <li>Crea el <code>Intent</code> junto con el <code>Bundle</code> para pasar a otra actividad</li>
+ *      <li>El ciclo de vida de la Activity</li>
+ *      <li>Ver la pila de Activities</li>
+ * </ol>
  *
  * @author David
  * @version 1.0
@@ -60,12 +60,12 @@ class SendMessageActivity : AppCompatActivity() {
             sendMessage()
         }
         // Se escriben mensajes de depuración en la consola LogCat
-        Log.d("TAG", "SendMessageActivity -> onCreate()")
+        Log.d(TAG, "SendMessageActivity -> onCreate()")
     }
 
     /**
-     * Función que crea un mensaje con la información de la persona que envia y de la persona
-     * que recive el mensaje
+     * Función que crea un mensaje con la información de la persona que envía y de la persona
+     * que recibe el mensaje
      */
     private fun sendMessage() {
         // 1. Crear el Intent
@@ -74,10 +74,10 @@ class SendMessageActivity : AppCompatActivity() {
         val bundle = Bundle()
         // 3. La información del mensaje
         val sender = Person("77684848W", "David", "Márquez Fontivero")
-        val reciever = Person("77684848W", "David", "Márquez Fontivero")
+        val receiver = Person("77684848W", "David", "Márquez Fontivero")
 
-        val message = Message(1, etMessageText.text.toString(), sender, reciever)
-        bundle.putSerializable("KEY_MESSAGE", message)
+        val message = Message(1, etMessageText.text.toString(), sender, receiver)
+        bundle.putParcelable("KEY_MESSAGE", message)
         intent.putExtras(bundle)
         startActivity(intent)
     }

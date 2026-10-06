@@ -18,7 +18,7 @@ import com.example.sendmessage.model.Message
  */
 
 
-
+@Suppress("DEPRECATION")
 class ViewMessageActivity : AppCompatActivity() {
 
     companion object {
@@ -39,7 +39,7 @@ class ViewMessageActivity : AppCompatActivity() {
 
         val tvViewMessage = findViewById<TextView>(R.id.tvViewMessage)
         val tvSender = findViewById<TextView>(R.id.tvSender)
-        val message = intent.getSerializableExtra("KEY_MESSAGE") as? Message
+        val message = intent.getParcelableExtra("KEY_MESSAGE") as? Message
 
         tvViewMessage.text = message?.content
         tvSender.text = message?.sender?.name
@@ -48,27 +48,27 @@ class ViewMessageActivity : AppCompatActivity() {
     //region Ciclo de Vida de una Actividad
     override fun onStart() {
         super.onStart()
-        Log.d("TAG", "ViewMessageActivity -> onCreate()")
+        Log.d(TAG, "ViewMessageActivity -> onCreate()")
     }
 
     override fun onResume() {
         super.onResume()
-        Log.d("TAG", "ViewMessageActivity -> onCreate()")
+        Log.d(TAG, "ViewMessageActivity -> onCreate()")
     }
 
     override fun onPause() {
         super.onPause()
-        Log.d("TAG", "ViewMessageActivity -> onCreate()")
+        Log.d(TAG, "ViewMessageActivity -> onCreate()")
     }
 
     override fun onStop() {
         super.onStop()
-        Log.d("TAG", "ViewMessageActivity -> onCreate()")
+        Log.d(TAG, "ViewMessageActivity -> onCreate()")
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d("TAG", "ViewMessageActivity -> onCreate()")
+        Log.d(TAG, "ViewMessageActivity -> onCreate()")
     }
     //endregion
 }

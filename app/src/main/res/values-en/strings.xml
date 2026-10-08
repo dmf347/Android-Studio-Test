@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SendMessage</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragmento</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="etSendMessage">Introduce text</string>
+    <string name="btSendMessage">Send</string>
+    <string name="hintSendMessage">Blind</string>
+    <string name="tvSendMessage">Send Activity</string>
+    <string name="etViewActivity">User</string>
+</resources>
